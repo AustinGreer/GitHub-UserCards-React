@@ -7,8 +7,8 @@ import Followers from './components/Followers'
 
 class App extends Component {
   state = {
-    user: '',
-    followers: ''
+    user: {},
+    followers: []
   }
 
   componentDidMount() {
@@ -20,6 +20,15 @@ class App extends Component {
       })
     })
     .catch(err => console.log('error here', err))
+
+    axios.get('https://api.github.com/users/AustinGreer/followers')
+    .then(res => {
+      console.log('followers', res.data)
+      this.setState({
+        followers: res.data
+      })
+    })
+    .catch(err => console.log(err))
   }
 
   render() {
@@ -28,6 +37,7 @@ class App extends Component {
         <h1>Github UserCards</h1>
         <SearchUser />
         <User user={this.state.user} />
+        <Followers followers={this.state.followers} />
       </div>
     )
   }
