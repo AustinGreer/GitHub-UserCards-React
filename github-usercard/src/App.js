@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+import SearchUser from './components/SearchUser'
+import User from './components/User'
+import Followers from './components/Followers'
+
 class App extends Component {
   state = {
     user: '',
@@ -20,8 +24,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello From the App Component</h1>
+      <div className='app'>
+        <h1>Github UserCards</h1>
+        <SearchUser />
+        <User user={this.state.user} />
       </div>
     )
   }
