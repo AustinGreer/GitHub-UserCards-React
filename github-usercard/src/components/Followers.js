@@ -8,9 +8,7 @@ class Followers extends Component {
             <StyledDiv>
                 {this.props.followers.map(follower => {
                     return (
-                    
-                        <Follower  follower={follower} />
-                    
+                        <Follower key={follower.id} follower={follower} />
                     )
                 })}
             </StyledDiv>
