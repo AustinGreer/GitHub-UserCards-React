@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 
 class SearchUser extends Component {
@@ -11,10 +12,20 @@ class SearchUser extends Component {
         })
     }
 
+    handleSubmit = (event) => {        
+        axios.get(`https://api.github.com/users/${this.state.inputValue}`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+
+    componentDidUpdate() {
+        this.handleSubmit()
+    }
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.componentDidUpdate}>
                     <input
                         type='text'
                         name='search-user'

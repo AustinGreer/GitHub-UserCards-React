@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 class Follower extends Component {
     render() {
-        console.log(this.props.follower)
         return (
             <StyledFollowers>
                 <h4>Username: {this.props.follower.login}</h4>

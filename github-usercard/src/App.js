@@ -14,7 +14,6 @@ class App extends Component {
   componentDidMount() {
     axios.get('https://api.github.com/users/AustinGreer')
     .then(res => {
-      console.log(res.data)
       this.setState({
         user:res.data
       })
@@ -23,7 +22,6 @@ class App extends Component {
 
     axios.get('https://api.github.com/users/AustinGreer/followers')
     .then(res => {
-      console.log('followers', res.data)
       this.setState({
         followers: res.data
       })
