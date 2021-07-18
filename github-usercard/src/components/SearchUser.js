@@ -1,9 +1,6 @@
-import axios from 'axios'
 import React, { Component } from 'react'
 
 class SearchUser extends Component {
-    
-
     render() {
         return (
             <div>

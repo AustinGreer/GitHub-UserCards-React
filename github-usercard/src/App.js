@@ -36,22 +36,13 @@ class App extends Component {
     })
   }
 
-  // searchUser = (user) => {
-  //   axios.get(`https://api.github.com/users/${user}`)
-  //   .then(res => {
-  //     this.setState({
-  //       user: res.data
-  //     })
-  //   })
-  //   .catch(err => console.log('err', err))
-  // }
-
   handleSubmit = (event) => {
     event.preventDefault();
     
     // this axios call allows you to search and return specific user
     axios.get(`https://api.github.com/users/${this.state.inputValue}`)
     .then(res => {
+      console.log(res.data)
       this.setState({
         user: res.data
       })
